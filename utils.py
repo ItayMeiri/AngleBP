@@ -84,27 +84,27 @@ def initialize_model(model_name, num_classes, feature_extract, use_pretrained=Tr
     return model_ft
 
 
-def get_datasets(name, data_transformation=None):
+def get_datasets(name, data_transformation=None, download=True):
     if name == 'cifar10':
-        dataset = datasets.CIFAR10(root='data/', train=True, transform=data_transformation['train'], download=True)
-        dataset_test = datasets.CIFAR10(root='data/', train=False, transform=data_transformation['val'], download=True)
+        dataset = datasets.CIFAR10(root='data/', train=True, transform=data_transformation['train'], download=download)
+        dataset_test = datasets.CIFAR10(root='data/', train=False, transform=data_transformation['val'], download=download)
     elif name == 'svhn':
-        dataset = datasets.SVHN(root='data/', split='train', transform=data_transformation['train'], download=True)
-        dataset_test = datasets.SVHN(root='data/', split='test', transform=data_transformation['val'], download=True)
+        dataset = datasets.SVHN(root='data/', split='train', transform=data_transformation['train'], download=download)
+        dataset_test = datasets.SVHN(root='data/', split='test', transform=data_transformation['val'], download=download)
     elif name == "mnist":
-        dataset = datasets.MNIST(root='data/', train=True, transform=data_transformation['train'], download=True)
-        dataset_test = datasets.MNIST(root='data/', train=False, transform=data_transformation['val'], download=True)
+        dataset = datasets.MNIST(root='data/', train=True, transform=data_transformation['train'], download=download)
+        dataset_test = datasets.MNIST(root='data/', train=False, transform=data_transformation['val'], download=download)
     elif name == 'kmnist':
-        dataset = datasets.KMNIST(root='data/', train=True, transform=data_transformation['train'], download=True)
-        dataset_test = datasets.KMNIST(root='data/', train=False, transform=data_transformation['val'], download=True)
+        dataset = datasets.KMNIST(root='data/', train=True, transform=data_transformation['train'], download=download)
+        dataset_test = datasets.KMNIST(root='data/', train=False, transform=data_transformation['val'], download=download)
     elif name == 'fashionmnist':
-        dataset = datasets.FashionMNIST(root='data/', train=True, transform=data_transformation['train'], download=True)
-        dataset_test = datasets.FashionMNIST(root='data/', train=False, transform=data_transformation['val'], download=True)
+        dataset = datasets.FashionMNIST(root='data/', train=True, transform=data_transformation['train'], download=download)
+        dataset_test = datasets.FashionMNIST(root='data/', train=False, transform=data_transformation['val'], download=download)
     elif name == 'cifar100':
-        dataset = datasets.CIFAR100(root='data/', train=True, transform=data_transformation['train'], download=True)
-        dataset_test = datasets.CIFAR100(root='data/', train=False, transform=data_transformation['val'], download=True)
+        dataset = datasets.CIFAR100(root='data/', train=True, transform=data_transformation['train'], download=download)
+        dataset_test = datasets.CIFAR100(root='data/', train=False, transform=data_transformation['val'], download=download)
     elif name == "lsun":
-        dataset = datasets.LSUN(root='data/', classes=['bedroom_train'], transform=data_transformation['train'], download=True)
+        dataset = datasets.LSUN(root='data/', classes=['bedroom_train'], transform=data_transformation['train'], download=download)
         dataset_test = datasets.LSUN(root='data/', classes=['bedroom_val'], transform=data_transformation['val'])
     else:
         raise ValueError("Dataset not supported")
